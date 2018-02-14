@@ -9,7 +9,7 @@
 * utils.py ==> has timeit method for function call time, elbow method for k-means clustering
 * server.py ==> Flask API server serving HTTP POST requests
 
-## POST REQUEST
+### POST REQUEST
 * URL: http://127.0.0.1:5000/visual_search
 
 * Example query: 
