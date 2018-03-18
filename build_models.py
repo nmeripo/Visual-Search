@@ -11,8 +11,6 @@ PATH_TO_IDS = './item_id.npy'
 PATH_TO_VECTORS = './item_vector.npy'
 
 
-#lambdafn = lambda x : ', '.join(map(str, x))
-
 
 def load_dataset(path_to_ids, path_to_vectors):
     """
@@ -26,10 +24,6 @@ def load_dataset(path_to_ids, path_to_vectors):
     ids_vecs = dict(zip(item_ids, item_vectors))
 
     return item_ids, item_vectors, ids_vecs
-
-
-item_ids, item_vecs, ids_vecs = load_dataset(PATH_TO_IDS, PATH_TO_VECTORS)
-pickle.dump(ids_vecs, open("ids_vecs.pkl", "wb"))
 
 
 
@@ -116,10 +110,13 @@ def findKSimilarDiverseImages(query, centroids, cluster_pts, K):
     return choosen_ids
 
 
+if __name__ == '__main__':
+    item_ids, item_vecs, ids_vecs = load_dataset(PATH_TO_IDS, PATH_TO_VECTORS)
+    pickle.dump(ids_vecs, open("ids_vecs.pkl", "wb"))
 
-buildkNNModel(item_vecs)
+    buildkNNModel(item_vecs)
 
-# Elobow method to pick k-value in k-means clustering
-# elbow_plot(item_vectors, step=3, maxK=90)
+    # Elobow method to pick k-value in k-means clustering
+    # elbow_plot(item_vectors, step=3, maxK=90)
 
-buildKMeans(item_vecs)
+    buildKMeans(item_vecs)
