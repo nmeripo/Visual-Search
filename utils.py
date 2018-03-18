@@ -16,7 +16,7 @@ def elbow_plot(data, maxK=80, step=2):
         if k % step == 0:
             print("k: ", k)
             kmeans = MiniBatchKMeans(n_clusters=k, init='k-means++', max_no_improvement=10, random_state=0).fit(data)
-            #data["clusters"] = kmeans.labels_
+            # data["clusters"] = kmeans.labels_
             # Inertia: Sum of distances of samples to their closest cluster center
             sse[k / step] = kmeans.inertia_
     actual_k = list(sse.keys())
